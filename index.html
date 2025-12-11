@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BOGOWIE BLIZN | WI AGH METAL</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Metal+Mania&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --maiden-red: #b91d1d;
+            --maiden-yellow: #facc15;
+            --void-black: #0a0a0a;
+            --code-grey: #1f2937;
+            --text-light: #e5e5e5;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--void-black);
+            color: var(--text-light);
+            font-family: 'Roboto Mono', monospace; /* Nawiązanie do kodowania */
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Metal Mania', cursive;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* --- HEADER & HERO --- */
+        header {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.9)), 
+                        url('https://images.unsplash.com/photo-1542831371-29b0f74f9713?q=80&w=2070&auto=format&fit=crop'); /* Placeholder: Kod/Serwery */
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            border-bottom: 5px solid var(--maiden-red);
+        }
+
+        .logo {
+            font-size: 5rem;
+            color: var(--maiden-yellow); /* Kolorystyka Maiden */
+            text-shadow: 4px 4px 0px var(--maiden-red), 8px 8px 10px black;
+            margin-bottom: 20px;
+            animation: pulse 3s infinite;
+        }
+
+        .tagline {
+            font-size: 1.5rem;
+            color: #fff;
+            background-color: rgba(185, 29, 29, 0.8);
+            padding: 10px 20px;
+            transform: skew(-10deg);
+        }
+
+        /* --- NAWIGACJA --- */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            padding: 15px;
+            z-index: 1000;
+            border-bottom: 1px solid var(--maiden-red);
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        nav a {
+            color: var(--maiden-yellow);
+            text-decoration: none;
+            font-family: 'Metal Mania', cursive;
+            font-size: 1.2rem;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--maiden-red);
+            text-shadow: 0 0 10px var(--maiden-red);
+        }
+
+        /* --- SEKCJE --- */
+        section {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 50px;
+            color: var(--maiden-red);
+            border-bottom: 2px solid var(--code-grey);
+            padding-bottom: 10px;
+        }
+
+        /* --- O NAS (WI AGH STYLE) --- */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .terminal-box {
+            background: var(--code-grey);
+            border: 2px solid var(--maiden-red);
+            padding: 20px;
+            border-radius: 5px;
+            font-family: 'Roboto Mono', monospace;
+            box-shadow: 10px 10px 0px black;
+        }
+
+        .cmd { color: var(--maiden-yellow); }
+        .string { color: #a5d6ff; }
+
+        /* --- DYSKOGRAFIA --- */
+        .tracklist {
+            list-style: none;
+        }
+
+        .track {
+            background: #111;
+            border-left: 5px solid var(--maiden-red);
+            padding: 20px;
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: transform 0.2s;
+        }
+
+        .track:hover {
+            transform: translateX(10px);
+            background: #1a1a1a;
+        }
+
+        .track-title { font-weight: bold; font-size: 1.2rem; }
+        .track-meta { color: #666; font-size: 0.9rem; }
+
+        /* --- STOPKA --- */
+        footer {
+            background: black;
+            text-align: center;
+            padding: 40px;
+            border-top: 5px solid var(--maiden-red);
+            margin-top: 50px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--maiden-red);
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 20px;
+            border: 2px solid transparent;
+            transition: all 0.3s;
+        }
+
+        .btn:hover {
+            background: transparent;
+            border-color: var(--maiden-red);
+            color: var(--maiden-red);
+        }
+
+        /* Animacje */
+        @keyframes pulse {
+            0% { text-shadow: 4px 4px 0px var(--maiden-red); }
+            50% { text-shadow: 4px 4px 20px var(--maiden-red); }
+            100% { text-shadow: 4px 4px 0px var(--maiden-red); }
+        }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            .about-content { grid-template-columns: 1fr; }
+            .logo { font-size: 3rem; }
+            nav { gap: 15px; flex-wrap: wrap; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="#home">START</a>
+        <a href="#about">O NAS</a>
+        <a href="#music">UTWORY</a>
+        <a href="#contact">KONTAKT</a>
+    </nav>
+
+    <header id="home">
+        <h1 class="logo">BOGOWIE BLIZN</h1>
+        <div class="tagline">WI AGH HARDCORE DIVISION</div>
+        <p style="margin-top: 20px; color: #aaa;">Est. Building D-17</p>
+    </header>
+
+    <section id="about">
+        <h2 class="section-title">Kuźnia Dusz w C++</h2>
+        <div class="about-content">
+            <div class="text">
+                <p>Powstaliśmy w podziemiach budynku D-17, gdzie szum serwerów miesza się z krzykiem studentów przed sesją. Jesteśmy <strong>BOGOWIE BLIZN</strong>.</p>
+                <br>
+                <p>Nasza muzyka to skompilowany gniew, debugowanie rzeczywistości i heavy metal w najczystszej postaci. Inspirowani legendami Iron Maiden, tworzymy brzmienie, które topi procesory.</p>
+                <br>
+                <p>Gramy hardkorowy metal, ale w naszych żyłach płynie też jazz, blues i dźwięki errorów Windowsa.</p>
+            </div>
+            <div class="terminal-box">
+                <p><span class="cmd">root@WI-AGH:~$</span> ./start_band.sh</p>
+                <p>> Loading members...</p>
+                <p>> Guitar: <span class="string">"Segfault" Steve</span></p>
+                <p>> Drums: <span class="string">"DDoS" Dave</span></p>
+                <p>> Vocals: <span class="string">The Compiler</span></p>
+                <p>> Status: <span style="color:red">CRITICAL ERROR (TOO HEAVY)</span></p>
+            </div>
+        </div>
+    </section>
+
+    <section id="music">
+        <h2 class="section-title">Lista Zniszczenia</h2>
+        <ul class="tracklist">
+            <li class="track">
+                <span class="track-title">1. The Number of the Beast (Is 404)</span>
+                <span class="track-meta">Hardcore Metal / 4:20</span>
+            </li>
+            <li class="track">
+                <span class="track-title">2. Infinite Loop of Agony</span>
+                <span class="track-meta">Thrash / 3:33</span>
+            </li>
+            <li class="track">
+                <span class="track-title">3. Ballada o Warunku</span>
+                <span class="track-meta">Acoustic Doom / 5:15</span>
+            </li>
+            <li class="track">
+                <span class="track-title">4. Garbage Collector</span>
+                <span class="track-meta">Grindcore / 1:12</span>
+            </li>
+            <li class="track">
+                <span class="track-title">5. Hallowed Be Thy Code</span>
+                <span class="track-meta">Tribute / 7:10</span>
+            </li>
+        </ul>
+        <div style="text-align: center;">
+            <a href="#" class="btn">POSŁUCHAJ DEMO</a>
+        </div>
+    </section>
+
+    <section id="contact" style="text-align: center;">
+        <h2 class="section-title">Wezwij Nas</h2>
+        <p>Chcesz nas na juwenalia albo do piwnicy? Pisz.</p>
+        <p style="font-size: 1.5rem; margin-top: 20px; font-family: 'Metal Mania'; color: var(--maiden-yellow);">
+            booking@bogowieblizn.agh.edu.pl
+        </p>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 BOGOWIE BLIZN. Up the Irons! Up the WI!</p>
+        <p style="font-size: 0.8rem; color: #555;">Strona nie jest oficjalnym serwisem AGH (jeszcze).</p>
+    </footer>
+
+</body>
+</html>
